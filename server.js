@@ -77,8 +77,9 @@ app.use('/', (req, res) => {
 })
 
 
+var port = process.env.PORT || 8080;
 
-app.listen(8080, ()=> {
+app.listen(port, ()=> {
     console.log('Example app listening on port 8080');
     
 })
