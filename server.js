@@ -17,6 +17,15 @@ const months = ['January', 'February', 'March', 'April', 'May', 'June',
 
 app.use('/', (req, res) => {
     
+    console.log(req.method + ' request for: ' + res.url);
+    
+    if (req.url == '/favico.ico'){
+        
+            res.writeHead(200, { 'Content-Type': 'image/x-icon' } );
+            res.end();
+            console.log('favicon requested');
+    }
+    
     
     if (req.url == '/') { //load homepage if only goes to '/'
     
@@ -31,12 +40,7 @@ app.use('/', (req, res) => {
             })
             
         }
-        else if (req.url == '/favico.ico'){
-        
-            res.writeHead(200, { 'Content-Type': 'image/x-icon' } );
-            res.end();
-        
-        } else {
+         else {
         
         var urlStr = req.url.slice(1);
     
